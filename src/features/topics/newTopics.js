@@ -8,12 +8,7 @@ export const topicSlice = createSlice({
   name: 'topics',
   initialState: {
     topics: {
-      '0': {
-        id: '',
-        name: '',
-        icon: '',
-        quizIds: []
-      }
+      
     }
   },
   reducers: {
@@ -28,12 +23,12 @@ export const topicSlice = createSlice({
       }
       state.topics = { ...state.topics, [uniqueId]: newTopic }
     },
-    addQuiz: (state, action) => {
+    addQuizId: (state, action) => {
       const { quizId, topicId } = action.payload;
       //find the active topic key and insert a quiz array
       for(const key in state.topics){
         if(key === topicId){
-          key.quizIds.push(quizId);
+          state.topics[key].quizIds.push(quizId);
         }
       }
     }
@@ -45,7 +40,7 @@ export const topicSlice = createSlice({
 export const selectTopics = (state) => state.topics.topics;
 
 //actions
-export const { addTopic, addQuiz } = topicSlice.actions;
+export const { addTopic, addQuizId } = topicSlice.actions;
 
 //reducers
 export default topicSlice.reducer;

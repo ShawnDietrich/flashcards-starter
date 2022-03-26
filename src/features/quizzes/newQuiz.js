@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-
-
-
 //create slice
 export const quizzesSlice = createSlice({
     name: 'quizzes',
@@ -27,7 +24,7 @@ export const quizzesSlice = createSlice({
 })
 
 //selectors
-export const selectQuiz = (state) => state.quizzes.quizzes;
+export const selectQuizes = (state) => state.quizzes.quizzes;
 
 //slice actions
 export const {addQuiz} = quizzesSlice.actions;

@@ -20,7 +20,6 @@ export default function NewTopicForm() {
 
     // dispatch your add topic action here
     const uniqueId = uuidv4();
-    console.log(`id = ${uniqueId} name = ${name} icon = ${icon}`)
     dispatch(addTopic({uniqueId, name, icon}));
     history.push(ROUTES.topicsRoute());
   };
